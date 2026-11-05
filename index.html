@@ -11,14 +11,23 @@
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
     <div id="app">
       <header class="chrome">
         <div class="brand">
-          <span class="brand__mark">Plan Maestro</span>
-          <span class="brand__sep" aria-hidden="true"></span>
-          <span class="brand__context">UTEC</span>
+          <span
+            class="brand-thinking-orb orb-mount"
+            data-orb="solving"
+            data-orb-kind="brand"
+            aria-hidden="true"
+          ></span>
+          <span class="brand__copy">
+            <span class="brand__mark">Plan Maestro</span>
+            <span class="brand__sep" aria-hidden="true"></span>
+            <span class="brand__context">UTEC</span>
+          </span>
         </div>
         <div class="progress" aria-live="polite">
           <span class="progress__current" id="slide-num">01</span>
@@ -48,14 +57,14 @@
                 La necesidad en el aula termina convirtiéndose en una EdTech.
               </p>
             </div>
-            <figure class="hero-logo">
-              <img
-                src="./new_logo.png"
-                alt="Logo Plan Maestro"
-                class="hero-logo__img"
-                width="480"
-                height="480"
-              />
+            <figure class="hero-logo" role="img" aria-label="Plan Maestro IA">
+              <div class="hero-thinking-orb" aria-hidden="true">
+                <div
+                  class="hero-thinking-orb-mount orb-mount"
+                  data-orb="solving"
+                  data-orb-kind="hero"
+                ></div>
+              </div>
             </figure>
           </div>
         </section>
@@ -177,14 +186,14 @@
         <section class="slide" data-slide="8" data-theme="birth">
           <div class="slide__bg slide__bg--birth" aria-hidden="true"></div>
           <div class="slide__inner slide__inner--birth">
-            <figure class="logo-reveal">
-              <img
-                src="./new_logo.png"
-                alt="Logo Plan Maestro"
-                class="logo-reveal__img"
-                width="480"
-                height="480"
-              />
+            <figure class="logo-reveal" role="img" aria-label="Plan Maestro IA">
+              <div class="hero-thinking-orb" aria-hidden="true">
+                <div
+                  class="hero-thinking-orb-mount orb-mount"
+                  data-orb="solving"
+                  data-orb-kind="hero"
+                ></div>
+              </div>
             </figure>
             <div class="birth-copy">
               <p class="eyebrow">Nacimiento de Plan Maestro</p>
@@ -450,6 +459,6 @@
         <span>← →</span> o <span>Espacio</span> para navegar
       </footer>
     </div>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>

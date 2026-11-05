@@ -1,39 +1,37 @@
-import "./style.css";
-import gsap from "gsap";
+import gsap from "../node_modules/gsap/index.js";
 
-const slides = Array.from(
-  document.querySelectorAll<HTMLElement>(".slide")
-);
-const deck = document.getElementById("deck")!;
-const rail = document.getElementById("rail")!;
-const slideNum = document.getElementById("slide-num")!;
-const hint = document.getElementById("hint")!;
+void import("./orbs.ts").catch(() => {});
+
+const slides = Array.from(document.querySelectorAll(".slide"));
+const deck = document.getElementById("deck");
+const rail = document.getElementById("rail");
+const slideNum = document.getElementById("slide-num");
+const hint = document.getElementById("hint");
 
 let current = 0;
 let busy = false;
 let touchStartY = 0;
 let touchStartX = 0;
 
-/* —— Rail dots —— */
-slides.forEach((_, i) => {
+slides.forEach((slide, i) => {
   const btn = document.createElement("button");
   btn.type = "button";
   btn.className = "rail__dot";
   btn.setAttribute("aria-label", `Diapositiva ${i + 1}`);
-  if (i === 17) btn.classList.add("is-peak");
+  if (slide.classList.contains("slide--peak")) btn.classList.add("is-peak");
   if (i === 0) btn.classList.add("is-active");
   btn.addEventListener("click", () => goTo(i));
   rail.appendChild(btn);
 });
 
-const dots = Array.from(rail.querySelectorAll<HTMLButtonElement>(".rail__dot"));
+const dots = Array.from(rail.querySelectorAll(".rail__dot"));
 
-function setTheme(index: number) {
+function setTheme(index) {
   const theme = slides[index].dataset.theme || "light";
   document.body.dataset.theme = theme;
 }
 
-function markAnimTargets(slide: HTMLElement) {
+function markAnimTargets(slide) {
   const selectors = [
     ".eyebrow",
     ".display",
@@ -68,11 +66,11 @@ function markAnimTargets(slide: HTMLElement) {
 
 slides.forEach(markAnimTargets);
 
-function getTargets(slide: HTMLElement) {
-  return slide.querySelectorAll<HTMLElement>(".anim");
+function getTargets(slide) {
+  return slide.querySelectorAll(".anim");
 }
 
-function enterSlide(slide: HTMLElement, direction: number) {
+function enterSlide(slide, direction) {
   const targets = getTargets(slide);
   const isPeak = slide.classList.contains("slide--peak");
   const tl = gsap.timeline({
@@ -82,7 +80,7 @@ function enterSlide(slide: HTMLElement, direction: number) {
   gsap.set(slide, { autoAlpha: 1, zIndex: 2 });
 
   const isBirth = slide.dataset.theme === "birth";
-  const logo = slide.querySelector<HTMLElement>(".logo-reveal");
+  const logo = slide.querySelector(".logo-reveal");
 
   if (isPeak) {
     const bg = slide.querySelector(".slide__bg");
@@ -140,7 +138,7 @@ function enterSlide(slide: HTMLElement, direction: number) {
   return tl;
 }
 
-function exitSlide(slide: HTMLElement, direction: number) {
+function exitSlide(slide, direction) {
   const targets = getTargets(slide);
   const yTo = direction >= 0 ? -36 : 36;
   const tl = gsap.timeline({
@@ -161,7 +159,7 @@ function exitSlide(slide: HTMLElement, direction: number) {
   return tl;
 }
 
-function goTo(index: number) {
+function goTo(index) {
   if (busy || index === current || index < 0 || index >= slides.length) return;
 
   busy = true;
@@ -198,7 +196,6 @@ function prev() {
   goTo(current - 1);
 }
 
-/* Keyboard */
 window.addEventListener("keydown", (e) => {
   if (
     e.key === "ArrowRight" ||
@@ -208,11 +205,7 @@ window.addEventListener("keydown", (e) => {
   ) {
     e.preventDefault();
     next();
-  } else if (
-    e.key === "ArrowLeft" ||
-    e.key === "ArrowUp" ||
-    e.key === "PageUp"
-  ) {
+  } else if (e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "PageUp") {
     e.preventDefault();
     prev();
   } else if (e.key === "Home") {
@@ -224,7 +217,6 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-/* Wheel */
 let wheelLock = false;
 window.addEventListener(
   "wheel",
@@ -241,7 +233,6 @@ window.addEventListener(
   { passive: true }
 );
 
-/* Touch */
 deck.addEventListener(
   "touchstart",
   (e) => {
@@ -268,17 +259,15 @@ deck.addEventListener(
   { passive: true }
 );
 
-/* Click edges (desktop) */
 deck.addEventListener("click", (e) => {
-  const target = e.target as HTMLElement;
-  if (target.closest(".rail") || target.closest("a, button")) return;
+  const target = e.target instanceof Element ? e.target : null;
+  if (!target || target.closest(".rail") || target.closest("a, button")) return;
   const x = e.clientX;
   const w = window.innerWidth;
   if (x > w * 0.72) next();
   else if (x < w * 0.28) prev();
 });
 
-/* Boot */
 setTheme(0);
 gsap.set(slides, { autoAlpha: 0 });
 gsap.set(slides[0], { autoAlpha: 1, zIndex: 2 });

@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan Maestro · Para jóvenes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="chrome">
+        <div class="brand">
+          <span
+            class="brand-thinking-orb orb-mount"
+            data-orb="solving"
+            data-orb-kind="brand"
+            aria-hidden="true"
+          ></span>
+          <span class="brand__copy">
+            <span class="brand__mark">Plan Maestro</span>
+            <span class="brand__sep" aria-hidden="true"></span>
+            <span class="brand__context">UTEC</span>
+          </span>
+        </div>
+        <div class="progress" aria-live="polite">
+          <span class="progress__current" id="slide-num">01</span>
+          <span class="progress__divider">/</span>
+          <span class="progress__total">12</span>
+        </div>
+      </header>
+
+      <nav class="rail" id="rail" aria-label="Navegación de diapositivas"></nav>
+
+      <main class="deck" id="deck" tabindex="0">
+        <!-- 01 -->
+        <section class="slide is-active" data-slide="1" data-theme="hero">
+          <div class="slide__bg" aria-hidden="true"></div>
+          <div class="slide__inner slide__inner--hero">
+            <div class="hero-copy">
+              <p class="eyebrow">Para jóvenes</p>
+              <h1 class="display">
+                El camino hacia<br />
+                <em>Plan Maestro</em>
+              </h1>
+              <div class="hero-meta">
+                <p class="hero-meta__name">Marcos Mello</p>
+                <p class="hero-meta__roles">Docente · Desarrollador · Empresario</p>
+              </div>
+              <p class="lead lead--quote">
+                No hace falta venir del lugar correcto. Hace falta empezar.
+              </p>
+            </div>
+            <figure class="hero-logo" role="img" aria-label="Plan Maestro IA">
+              <div class="hero-thinking-orb" aria-hidden="true">
+                <div
+                  class="hero-thinking-orb-mount orb-mount"
+                  data-orb="solving"
+                  data-orb-kind="hero"
+                ></div>
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <!-- 02 -->
+        <section class="slide" data-slide="2" data-theme="dark">
+          <div class="slide__inner">
+            <p class="eyebrow">Una pregunta</p>
+            <h2 class="headline">
+              ¿Qué pasa cuando decidís resolver un problema real?
+            </h2>
+            <ul class="strip">
+              <li>Sin equipo</li>
+              <li>Sin inversión</li>
+              <li>Poca experiencia</li>
+            </ul>
+            <p class="punch">
+              Solo una idea, ganas de salir adelante y un camino que todavía no se ve.
+            </p>
+          </div>
+        </section>
+
+        <!-- 03 -->
+        <section class="slide" data-slide="3" data-theme="light">
+          <div class="slide__inner slide__inner--split">
+            <div>
+              <p class="eyebrow">Quién era</p>
+              <h2 class="headline">Antes de saber programar</h2>
+            </div>
+            <ul class="list">
+              <li>Docente de Educación Física</li>
+              <li>Nerd asumido</li>
+              <li>Autodidacta</li>
+              <li>Convencido de que siempre hay una mejor forma</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 04 -->
+        <section class="slide" data-slide="4" data-theme="light">
+          <div class="slide__inner">
+            <p class="eyebrow">El problema</p>
+            <h2 class="headline">Horas que nadie ve</h2>
+            <p class="lead">El trabajo no termina cuando suena el timbre.</p>
+            <ul class="grid-4">
+              <li>Planificaciones</li>
+              <li>Informes</li>
+              <li>Evaluaciones</li>
+              <li>Documentación</li>
+            </ul>
+            <p class="punch">
+              Tiempo dedicado, no pagado y, casi siempre, no valorado.
+            </p>
+          </div>
+        </section>
+
+        <!-- 05 -->
+        <section class="slide" data-slide="5" data-theme="dark">
+          <div class="slide__inner slide__inner--split slide__inner--code">
+            <div class="path-copy">
+              <p class="eyebrow">El primer paso</p>
+              <h2 class="headline">Antes del plan perfecto</h2>
+              <p class="lead">
+                Una agencia me abrió JavaScript. A las 03:47 escribí el primer Hello World.
+              </p>
+              <ul class="strip">
+                <li>Tutoriales</li>
+                <li>Inglés</li>
+                <li>Prueba y error</li>
+              </ul>
+              <p class="punch">
+                El 30 de noviembre de 2022 llegó la IA.<br />
+                El mundo se aceleró.
+              </p>
+            </div>
+            <pre class="codeblock" aria-label="Primer Hello World en JavaScript"><code><span class="codeblock__line"><span class="tok-cmt">// first.js — 03:47 AM</span></span>
+<span class="codeblock__line"><span class="tok-cmt">// El primer Hello World</span></span>
+<span class="codeblock__line"><span class="tok-cmt">// uno nunca se olvida.</span></span>
+<span class="codeblock__line">&nbsp;</span>
+<span class="codeblock__line"><span class="tok-kw">function</span> <span class="tok-fn">primerPaso</span>() {</span>
+<span class="codeblock__line">  <span class="tok-fn">console</span>.<span class="tok-fn">log</span>(<span class="tok-str">"Hello, World!"</span>);</span>
+<span class="codeblock__line">  <span class="tok-fn">console</span>.<span class="tok-fn">log</span>(<span class="tok-str">"¡Esto es increíble! ¿Estoy viciado?"</span>);</span>
+<span class="codeblock__line">}</span>
+<span class="codeblock__line">&nbsp;</span>
+<span class="codeblock__line"><span class="tok-fn">primerPaso</span>();</span></code></pre>
+          </div>
+        </section>
+
+        <!-- 06 -->
+        <section class="slide" data-slide="6" data-theme="birth">
+          <div class="slide__bg slide__bg--birth" aria-hidden="true"></div>
+          <div class="slide__inner slide__inner--birth">
+            <figure class="logo-reveal" role="img" aria-label="Plan Maestro IA">
+              <div class="hero-thinking-orb" aria-hidden="true">
+                <div
+                  class="hero-thinking-orb-mount orb-mount"
+                  data-orb="solving"
+                  data-orb-kind="hero"
+                ></div>
+              </div>
+            </figure>
+            <div class="birth-copy">
+              <p class="eyebrow">La idea</p>
+              <h2 class="headline">Una idea simple</h2>
+              <p class="lead lead--xl">
+                Reducir horas de trabajo docente a minutos.
+              </p>
+              <ul class="strip">
+                <li>Ahorrar tiempo</li>
+                <li>Mejorar la planificación</li>
+                <li>Facilitar la innovación</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 07 -->
+        <section class="slide" data-slide="7" data-theme="dark">
+          <div class="slide__inner">
+            <p class="eyebrow">Primeras versiones</p>
+            <h2 class="headline">Lentas, feas, con errores</h2>
+            <ul class="strip">
+              <li>No estaban listas</li>
+              <li>Igual las mostré</li>
+              <li>Alcanzaban para seguir</li>
+            </ul>
+            <p class="punch">Esperar a que fuera perfecto era perder.</p>
+          </div>
+        </section>
+
+        <!-- 08 — pico -->
+        <section class="slide slide--peak" data-slide="8" data-theme="peak">
+          <div class="slide__bg slide__bg--peak" aria-hidden="true"></div>
+          <div class="slide__inner slide__inner--peak">
+            <p class="eyebrow">El punto</p>
+            <h2 class="headline headline--peak">Velocidad y adaptabilidad</h2>
+            <p class="lead lead--peak">
+              El mundo no espera a que termines de prepararte.
+            </p>
+            <div class="duo">
+              <div>
+                <h3>Velocidad</h3>
+                <ul class="list">
+                  <li>Dar el paso hoy</li>
+                  <li>Publicar la versión fea</li>
+                  <li>Aprender lo justo</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Adaptabilidad</h3>
+                <ul class="list">
+                  <li>Escuchar el problema</li>
+                  <li>Corregir en el camino</li>
+                  <li>Soltar lo que no sirve</li>
+                </ul>
+              </div>
+            </div>
+            <p class="manifesto">
+              No gana quien más sabe.<br />
+              <em>Gana quien llega antes y ajusta más rápido.</em>
+            </p>
+          </div>
+        </section>
+
+        <!-- 09 -->
+        <section class="slide" data-slide="9" data-theme="light">
+          <div class="slide__inner">
+            <p class="eyebrow">La prueba</p>
+            <h2 class="headline">De horas a minutos</h2>
+            <ul class="grid-4">
+              <li>Planificaciones</li>
+              <li>Secuencias</li>
+              <li>Evaluaciones</li>
+              <li>Rúbricas</li>
+            </ul>
+            <p class="punch">
+              La IA saca lo repetitivo. El criterio sigue siendo tuyo.
+            </p>
+          </div>
+        </section>
+
+        <!-- 10 -->
+        <section class="slide" data-slide="10" data-theme="light">
+          <div class="slide__inner">
+            <p class="eyebrow">Para vos</p>
+            <h2 class="headline">Cuatro cosas para llevarte</h2>
+            <ol class="lessons">
+              <li><span>01</span> Empezá imperfecto. Esperar es otra forma de quedarte quieto.</li>
+              <li><span>02</span> Escuchá a quien vive el problema.</li>
+              <li><span>03</span> La constancia le gana al talento.</li>
+              <li><span>04</span> Movete rápido. Adaptate más rápido.</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- 11 -->
+        <section class="slide" data-slide="11" data-theme="dark">
+          <div class="slide__inner">
+            <p class="eyebrow">Desde donde estás</p>
+            <h2 class="headline">No hace falta una gran ciudad</h2>
+            <p class="lead">
+              Durante mucho tiempo creímos que innovar era cosa de otro lado.
+            </p>
+            <p class="manifesto">
+              Las ideas<br />
+              <em>no tienen código postal.</em>
+            </p>
+          </div>
+        </section>
+
+        <!-- 12 -->
+        <section class="slide" data-slide="12" data-theme="accent">
+          <div class="slide__inner slide__inner--center">
+            <p class="eyebrow">Mensaje final</p>
+            <h2 class="headline">No esperes estar listo</h2>
+            <ul class="strip strip--stack">
+              <li>No esperes sentirte preparado.</li>
+              <li>No esperes tener todos los recursos.</li>
+              <li>No esperes el momento perfecto.</li>
+            </ul>
+            <p class="manifesto manifesto--short"><em>Empezá ayer.</em></p>
+            <p class="punch punch--xl">¿Preguntas?</p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="hint" id="hint">
+        <span>← →</span> o <span>Espacio</span> para navegar
+      </footer>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

@@ -60,18 +60,41 @@ body {
   justify-content: space-between;
   padding: 1.25rem 2rem;
   pointer-events: none;
-  mix-blend-mode: difference;
   color: var(--white);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
+}
+
+.brand-thinking-orb {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  line-height: 0;
+}
+
+.brand-thinking-orb canvas {
+  display: block;
+}
+
+.brand__copy,
+.progress {
+  mix-blend-mode: difference;
+}
+
+.brand__copy {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .brand__mark {
@@ -154,13 +177,20 @@ body[data-theme="light"] .rail__dot.is-active {
 }
 
 body[data-theme="light"] .chrome {
-  mix-blend-mode: normal;
   color: var(--ink);
+}
+
+body[data-theme="light"] .brand__copy,
+body[data-theme="light"] .progress,
+body[data-theme="accent"] .brand__copy,
+body[data-theme="accent"] .progress,
+body[data-theme="peak"] .brand__copy,
+body[data-theme="peak"] .progress {
+  mix-blend-mode: normal;
 }
 
 body[data-theme="accent"] .chrome,
 body[data-theme="peak"] .chrome {
-  mix-blend-mode: normal;
   color: var(--white);
 }
 
@@ -341,11 +371,37 @@ body[data-theme="peak"] .chrome {
   justify-self: end;
 }
 
-.hero-logo__img {
-  width: min(320px, 36vw);
-  height: auto;
+.hero-thinking-orb {
+  display: grid;
+  place-items: center;
+  line-height: 0;
+  animation: orb-float 6s ease-in-out infinite;
+}
+
+.hero-thinking-orb-mount {
+  display: grid;
+  place-items: center;
+  line-height: 0;
+}
+
+.hero-thinking-orb-mount canvas {
   display: block;
-  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
+}
+
+@keyframes orb-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-thinking-orb {
+    animation: none;
+  }
 }
 
 /* Themes */
@@ -378,13 +434,6 @@ body[data-theme="peak"] .chrome {
   display: grid;
   place-items: center;
   justify-self: center;
-}
-
-.logo-reveal__img {
-  width: min(340px, 42vw);
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
 }
 
 .birth-copy {
@@ -905,11 +954,6 @@ body[data-theme="light"] .hint span {
   .hero-logo {
     justify-self: center;
     order: -1;
-  }
-
-  .logo-reveal__img,
-  .hero-logo__img {
-    width: min(220px, 55vw);
   }
 
   .slide__inner--split,
